@@ -20,7 +20,7 @@ print('Нечетные числа:')
 print(odds)
 
 massive = len(odds)  # задаем параметр, чтобы пройтись по каждому элементу списка
-while massive >= 0:
+while massive > 0:
     x = odds[massive - 1] ** 3  # возводим элемент в 3ю степень
     odds.append(x)  # добавляем степень к списку
     del odds[massive - 1]  # удаляем число-основу
@@ -29,52 +29,67 @@ print('Кубы нечетных чисел:')
 print(odds)
 
 massive = len(odds)  # возвращаем значение по длине массива
-pieces_sum = 0
 
-while massive >= 0:
+while massive > 0:
     number = str(odds[massive - 1])  # превращаем элемент списка в строку
     mass_number = len(number)  # получаем длину строки
-    while mass_number >= 0:  # проходим по каждому символу
+    pieces_sum = 0
+    while mass_number > 0:  # проходим по каждому символу
         piece = int(number[mass_number - 1])  # возвращаем элемент числа к int
         pieces_sum = pieces_sum + piece  # суммируем каждый элемент числа между собой
         mass_number = mass_number - 1  # опускаемся на число ниже
     if pieces_sum % 7 == 0:  # если сумма чисел числа делется без остатка
-        odds.append(pieces_sum)  # добавляем элемент в список
-        del odds[massive - 1]  # удаляем число-основу
         massive = massive - 1  # опускаемся ниже
     else:  # иначе
         del odds[massive - 1]  # удаляем число-основу
         massive = massive - 1  # опускаемся ниже
-print('Суммы элементов чисел, которые делятся на 7 без остатка:')
+print('Числа, суммы элементов которых делятся на 7 без остатка:')
 print(odds)
 
 massive = len(odds)  # возвращаем значение по длине массива
+end_sum1 = 0
 
-while massive >= 0:
-    z = odds[massive - 1] + 17  # добавляем к каждому элементу 17
-    odds.append(z)  # добавляем новое число к списку
-    del odds[massive - 1]  # удаляем число-основу
-    massive = massive - 1  # повторяем все на пункт ниже
+while massive > 0:  # считаем сумму чисел в списке
+    end_sum1 = end_sum1 + odds[massive - 1]
+    massive = massive - 1
 
-print('Числа больше на 17:')
+print('Сумма данных чисел:')
+print(end_sum1)
+
+massive = len(odds)  # возвращаем значение по длине массива
+
+while massive > 0:
+    q = odds[massive - 1] + 17  # прибавляем последовательно к каждому элементу 17
+    odds.append(q)  # добавляем в список новое число
+    del odds[massive - 1]   # удаляем старое
+    massive = massive - 1   # опускаемся ниже
+print('Числа, увеличенные на 17:')
 print(odds)
 
 massive = len(odds)  # возвращаем значение по длине списка
-pieces_sum = 0
 
-while massive >= 0:
+while massive > 0:
     number = str(odds[massive - 1])  # превращаем элемент списка в строку
     mass_number = len(number)  # получаем длину строки
-    while mass_number >= 0:  # проходим по каждому символу
+    pieces_sum = 0
+    while mass_number > 0:  # проходим по каждому символу
         piece = int(number[mass_number - 1])  # возвращаем элемент числа к int
         pieces_sum = pieces_sum + piece  # суммируем каждый элемент числа между собой
         mass_number = mass_number - 1  # опускаемся на число ниже
     if pieces_sum % 7 == 0:  # если сумма чисел числа делется без остатка
-        odds.append(pieces_sum)  # добавляем элемент в список
+        massive = massive - 1  # опускаемся ниже
+    else:  # иначе
         del odds[massive - 1]  # удаляем число-основу
         massive = massive - 1  # опускаемся ниже
-    else:
-        del odds[massive - 1]  # удаляем число-основу
-        massive = massive - 1  # опускаемся ниже
-print('Суммы элементов чисел больше на 17, которые делятся на 7 без остатка:')
+print('Числа больше на 17, суммы элементов которых делятся на 7 без остатка:')
 print(odds)
+
+massive = len(odds)  # возвращаем значение по длине массива
+end_sum1 = 0
+
+while massive > 0:  # считаем сумму чисел в списке
+    end_sum1 = end_sum1 + odds[massive - 1]
+    massive = massive - 1
+
+print('Сумма данных чисел:')
+print(end_sum1)
