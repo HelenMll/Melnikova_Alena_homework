@@ -1,26 +1,26 @@
 from random import shuffle
 from random import choice
 
-def get_jokes(num):
+def get_jokes(doubles, num):
 
     """Функция для шуток"""
 
     nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
     adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
     adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
-    if num == 'y':
+    if doubles == 'yes':
         shuffle(nouns)
         shuffle(adverbs)
         shuffle(adjectives)
         for nouns, adverbs, adjectives in zip(nouns, adverbs, adjectives):
             print(f'{nouns} {adverbs} {adjectives}')
-    elif num == 'n':
-        counter = 4
-        while counter >= 0:
+    elif doubles == 'no':
+        num = int(num) - 1
+        while num >= 0:
             print(f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}')
-            counter -= 1
+            num -= 1
     else:
         print('Некорректный ввод')
 
-print('Запретить повторять слова шутки? y/n')
-get_jokes(input())
+print('Запретить повторять слова шутки? yes/no\nЕсли нет, то сколько шуток необходимо?')
+get_jokes(input(), input())
