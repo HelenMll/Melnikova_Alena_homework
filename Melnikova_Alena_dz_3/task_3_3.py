@@ -15,8 +15,8 @@ def get_jokes(doubles, num):
         for nouns, adverbs, adjectives in zip(nouns, adverbs, adjectives):
             print(f'{nouns} {adverbs} {adjectives}')
     elif doubles == 'no':
-        num = int(num) - 1
-        while num >= 0:
+        num = int(num)
+        while num > 0:
             print(f'{choice(nouns)} {choice(adverbs)} {choice(adjectives)}')
             num -= 1
     else:
